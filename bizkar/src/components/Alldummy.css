@@ -1,0 +1,664 @@
+.mainsection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    background-color: #1f3252;
+    /* background-color:  #d91656b3;; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding-top: 51px;
+    padding-bottom: 100px;
+    overflow: hidden;
+    /* z-index: -9999999999999999999999999999; */
+    /* background-image: url("../../public/assets/images/dotted-patter-1.png"); */
+}
+
+.try{
+    position: relative;
+}
+
+.bustag {
+    position: relative;
+    display: flex;
+   
+    border-top-left-radius: 70px;
+    border-bottom-left-radius: 70px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 50%;
+    height: fit-content;
+    margin-left: 60px;
+    background-color: #2e3e5a;
+}
+
+.iconrelated {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98px;
+    height: 98px;
+    border-radius: 70px;
+    background-color: #EB6E09;
+    position: relative;
+}
+
+.iconrelated::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    border: 3px dotted red;
+    opacity: 1;
+    border-spacing:100px;
+    animation: rotateCircle 10s linear infinite;
+}
+
+@keyframes rotateCircle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.busname {
+    display: flex;
+    color: white;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 98px;
+}
+
+.pingmybus {
+    position:relative;
+   
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+    
+   
+}
+
+.pingmybus button {
+    position: absolute;
+    top:-75px;
+    right:20px;
+    padding: 10px 20px; /* Padding for the button */
+    background-color: #ff5733; /* Red color for the Ping button */
+    color: white; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+.busdriver{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    background-color: red;
+    margin-top: 30px;
+}
+.busdriverinner{
+   
+    width: 70%;
+    height: fit-content;
+    background-color:blue;
+}
+
+.busrelated {
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: 2%;
+
+    height: fit-content;
+
+}
+.businnerrelated{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:97%;
+    height: fit-content;
+    margin: 2% 0;
+    /* margin: 0px 20px; */
+}
+
+.busmain {
+    width: 30%;
+    /* background-color: pink; */
+    /* background-color:#d91656b3; */
+    height: fit-content;
+    position: relative;
+    /* margin:20px 20px; */
+     /* To ensure the animation doesn't overflow */
+}
+
+/* .busmain::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    background-color: #EB6E09;
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.busmain:hover::before {
+    transform: scale(10);
+} */
+
+.busroute {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    
+    width:70%;
+    margin-left: 20px;
+    height: fit-content;
+    /* background-color:red; */
+    
+}
+
+.busrouteinner {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+ 
+    width:100%;
+    background-color: #2e3e5a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin: 20px 20px;
+    /* padding: 0px 20px; */
+    height: 320px;
+    overflow-x: auto; 
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.busrouteinner::-webkit-scrollbar {
+    height: 8px; /* Adjust scrollbar height for horizontal scrolling */
+  }
+  
+  .busrouteinner::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+  }
+  
+  .busrouteinner::-webkit-scrollbar-thumb {
+    background-color: orange; /* Scrollbar thumb color */
+    border-radius: 10px; /* Round edges */
+  }
+ 
+  .busrouteinner {
+    scrollbar-width: thin;
+    scrollbar-color: orange #f1f1f1; 
+  }
+  
+
+
+.route-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.route-description {
+    
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: #555;
+    padding-bottom: 10px;
+}
+
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    /* background-color: #fff; */
+}
+.mapinner {
+    width: 100%;
+    margin: 0px 20px;
+    background-color: black;
+    height: fit-contentmapContainer;
+    overflow-y: auto; 
+    white-space: nowrap;
+    border-radius: 20px;
+}
+
+
+.mapinner::-webkit-scrollbar {
+    width: 12px;
+}
+
+
+.mapinner::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+
+.mapinner::-webkit-scrollbar-thumb {
+    background-color: orange; 
+    border-radius: 10px; 
+    border: 2px solid transparent; 
+    background-clip: padding-box; 
+}
+
+
+.mapinner::-webkit-scrollbar-thumb:hover {
+    background-color: darkorange;
+}
+
+
+.mapinner {
+    scrollbar-width: thin; /* Adjust scrollbar width */
+    scrollbar-color: orange transparent; /* Thumb and track colors for Firefox */
+}
+
+
+.blurred {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+.liveTrackingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 1000;
+    flex-direction: column;
+}
+
+.liveTrackingOverlay h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.closeTrackingButton {
+    padding: 10px 20px;
+    background-color: #EB6E09;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor:pointer;
+}
+
+
+/* BusInfo */
+
+.bus-details-related {
+    position: relative;
+    background-color: #2e3e5a;
+    color: white;
+    border-radius: 5px;
+    padding:15px;
+    max-width: 400px;
+    height: 306px;
+    /* margin: 20px auto; */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.bus-details-related::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 122px;
+    height: 122px;
+    border-radius: 50%;
+    background:linear-gradient(to right,red,yellow);
+    /* z-index: 1; */
+    transition: all 0.5s ease;
+}
+
+.bus-details-related:hover::before {
+    transform: scale(10);
+   .bus-info{
+        z-index: 999999;
+    }
+    .bus-details-heading{
+        z-index: 999999;
+    }
+
+   
+}
+.bus-details-related h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.bus-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 2; 
+   
+}
+
+.info-item {
+
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color:  #3b4a6b ;
+    border-radius: 5px;
+    border:1px solid white;
+}
+.driver{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.driver img{
+    margin-top: 10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 100px;
+    border: 2px solid white;
+}
+.info-item label {
+    font-weight: bold;
+    color: white;
+}
+
+.info-item span {
+    color:white;
+    font-weight: bold; 
+}
+.bus-details-heading
+{
+    font-size:24px;
+    font-weight:bold;
+}
+
+
+
+.bus-details-related:hover::before {
+    transform: scale(10);
+}
+
+.bus-details-related h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: white;
+}
+
+/* RoadCss */
+.roadmap-container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    /* padding: 20px 0; */
+}
+
+.roadmap-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EB6E09;
+    color: white;
+    padding: 70px;
+    border-radius: 50%;
+    margin: 0 10px;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    
+    z-index: 1;
+    text-align: center;
+}
+
+.roadmap-step.up {
+    transform: translateY(-20px);
+}
+
+.roadmap-step.down {
+    transform: translateY(20px);
+}
+
+.roadmap-step .step-info p {
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%; 
+    font-size: 0.9em; 
+    padding: 0 8px; 
+}
+
+.icon {
+    background-color: white;
+    border-radius: 50%;
+    padding: 18px;
+  
+}
+
+.icon i {
+    font-size: 16px;
+    color: #EB6E09;
+}
+
+.roadmap-connector {
+    position: relative;
+    width:47px;
+    height:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.connector-path {
+    fill: none;
+    stroke: orange;
+    stroke-width: 10;
+    stroke-dasharray: 5, 5;
+    transition: stroke-dasharray 1s ease;
+}
+
+.roadmap-connector:hover .connector-path {
+    stroke-dasharray: 1, 1;
+}
+
+.end-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #EB6E09;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index:1;
+}
+
+.roadmap-step {
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    top: -30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.9em;
+    z-index: 1;
+}
+
+.step-info:hover .popup {
+    display: block;
+}
+
+
+
+.mapOptions {
+    position: absolute; 
+    
+    
+  
+   
+    border-radius: 15px; 
+    
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    z-index: 10;
+}
+
+
+/* Map Related */
+
+.container1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #BEE3F8;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.mapContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.mapOptions {
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 16px;
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    z-index: 1;
+}
+
+.inputGroup {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.inputField {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    flex: 1 1 120px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.calculateButton {
+    padding: 8px 16px;
+    background-color: #EB6E09;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.clearButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.locationButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.liveTrackingButton {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #EB6E09;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    animation: pulse 1.5s infinite ease-in-out;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.liveTrackingButton:hover {
+    transform: translateX(-50%) scale(1.1);
+    background-color:  rgb(82, 82, 233);
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 0 0  #EB6E09;
+    }
+    70% {
+        transform: translateX(-50%) scale(1.05);
+        box-shadow: 0 0 20px 20px rgba(40, 167, 69, 0);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}
