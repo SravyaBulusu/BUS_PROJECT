@@ -1,0 +1,779 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    /* background-color: #1f3252; */
+    /* background-color: white; */
+    overflow-x: hidden;
+}
+
+.BusInfoPage {
+    height: fit-content;
+    width: 100%;
+    background-color: #1f3252;
+    display: flex;
+    flex-direction: column;
+}
+
+.BusInfo_Slick {
+    height: 600px;
+    width: 100%;
+    /* background-color: #EB6E09; */
+    background: #151515;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+/* css */
+.slides {
+    display: grid;
+}
+
+.slides .slide {
+    grid-area: 1 / -1;
+}
+
+.slides button {
+    appearance: none;
+    background: rgba(0, 0, 0, 0.5);
+    /* Add background */
+    border: none;
+    color: white;
+    position: absolute;
+    font-size: 3rem;
+    width: 4rem;
+    height: 4rem;
+    top: 50%;
+    /* Center vertically */
+    transform: translateY(-50%);
+    /* Center vertically */
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    z-index: 5;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    align-content: center;
+}
+
+.slides button:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.9);
+    /* Darker background on hover */
+}
+
+.slides button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(255, 255, 255, 0.7);
+}
+
+.slides button:first-child {
+    left: 20px;
+}
+
+.slides button:last-child {
+    right: 20px;
+}
+
+.slideContent {
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: transform 0.5s ease-in-out;
+    opacity: 0.7;
+    display: grid;
+    align-content: center;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) translateX(calc(100% * var(--offset))) rotateY(calc(-45deg * var(--dir)));
+}
+
+.slideContentInner {
+    transform-style: preserve-3d;
+    transform: translateZ(2rem);
+    transition: opacity 0.3s linear;
+    background-color: rgb(21, 21, 21, 0.9);
+    border-radius: 10px;
+    padding: 10px;
+    text-shadow: 0 0.1rem 1rem #000;
+    opacity: 0;
+}
+
+.slideContentInner .slideSubtitle,
+.slideContentInner .slideTitle {
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 0.2ch;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.slideContentInner .slideSubtitle::before {
+    content: "— ";
+}
+
+.slideContentInner .slideDescription {
+    margin: 0;
+    font-size: 16px;
+    letter-spacing: 0.2ch;
+}
+
+.slideBackground {
+    position: absolute;
+    top: 0;
+    left: -10%;
+    right: -10%;
+    bottom: 0%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s linear, transform 0.3s ease-in-out;
+    pointer-events: none;
+    transform: translateX(calc(10% * var(--dir)));
+}
+
+.slide[data-active] {
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.slide[data-active] .slideBackground {
+    opacity: 0.2;
+    transform: none;
+}
+
+.slide[data-active] .slideContentInner {
+    opacity: 1;
+}
+
+.slide[data-active] .slideContent {
+    --x: calc(var(--px) - 0.5);
+    --y: calc(var(--py) - 0.5);
+    opacity: 1;
+    /* transform: perspective(1000px); */
+}
+
+.slide[data-active] .slideContent:hover {
+    transition: none;
+    transform: perspective(1000px) rotateY(calc(var(--x) * 45deg)) rotateX(calc(var(--y) * -45deg));
+}
+
+/* css */
+
+.BusInfo_MainPage {
+    background-color: #1f3252;
+    height: 740px !important;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+
+.BusInfo_BG {
+    height: 80%;
+    width: 100%;
+}
+
+.BGColorAnimations1 {
+    height: 450px;
+    width: 450px;
+    background-color: #EB6E09;
+    position: absolute;
+    border-bottom-left-radius: 70%;
+    animation: spreadEffect 5s infinite ease-in-out;
+    box-shadow: 0px 0px 20px 30px #EB6E09;
+    right: -15%;
+    top: -15%;
+    -webkit-filter: blur(110px);
+    filter: blur(110px);
+    position: fixed;
+}
+
+.BGColorAnimations2 {
+    height: 450px;
+    width: 450px;
+    background-color: #EB6E09;
+    position: absolute;
+    border-bottom-right-radius: 70%;
+    animation: spreadEffect 5s infinite ease-in-out;
+    box-shadow: 0px 0px 20px 30px #EB6E09;
+    left: -15%;
+    bottom: -15%;
+    -webkit-filter: blur(110px);
+    filter: blur(110px);
+    position: fixed;
+}
+
+@-webkit-keyframes spreadEffect {
+
+    0%,
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+}
+
+@keyframes spreadEffect {
+
+    0%,
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+}
+
+.rotated_circle1 {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    right: 1%;
+    top: 1%;
+    animation: rotated_circle 5s infinite ease-in-out;
+    position: fixed;
+}
+
+.rotated_circle2 {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    left: 1%;
+    bottom: 1%;
+    animation: rotated_circle 5s infinite ease-in-out;
+    position: fixed;
+}
+
+@-webkit-keyframes rotated_circle {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotated_circle {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.FilterIcon {
+    position: absolute;
+    left: 3px;
+    margin-top: 3px;
+    height: 40px;
+    width: 40px;
+    background-color: #EB6E09;
+    font-size: 20px;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.BusInfo_FilterBox {
+    position: absolute;
+    left: 20px;
+    background-color: #1f4352;
+    width: 250px;
+    height: 500px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top: 45px;
+}
+
+.FilterBox_Heading {
+    font-size: 18px;
+    height: fit-content;
+    border-bottom: 1px solid white;
+    display: flex;
+    padding: 18px;
+    align-items: center;
+}
+
+.FilterBoxMain {
+    height: fit-content;
+}
+
+.Ground {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.Ground:hover {
+    cursor: pointer;
+}
+
+.LocationIcon {
+    height: 30px;
+    width: 30px;
+}
+
+.LocationIconImage {
+    height: 100%;
+    width: 100%;
+}
+
+.FilterBoxGround {
+    padding-left: 40px;
+
+}
+
+.BusInfo_Content {
+    position: absolute;
+    right: 0px;
+    width: 80%;
+}
+
+.BusInfo_BusCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 640px;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.BusInfo_SearchBarDiv {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.BusInfo_SearchBar {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 0px 10px;
+    /* border: 2px solid #1f4352; */
+}
+
+.SearchBar {
+    height: 100%;
+    width: 88%;
+    padding: 0px 10px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+
+.SearchIcon {
+    height: 20px;
+    width: 20px;
+}
+
+.BusInfo_Card {
+    background-color: #1f4352;
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 30px;
+    width: 20%;
+    height: 330px;
+    box-shadow: 0px 0px 12px 3px #EB6E09;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 1s all;
+}
+
+.BusInfo_Card:hover {
+    border: 2px solid #1f4352;
+    box-shadow: 0px 0px 12px 3px gray;
+    background-color: rgb(235, 110, 9, 0.9);
+    scale: 1.1;
+}
+
+.BusInfo_Card:hover .BusPageButton {
+    background-color: #1f4352;
+}
+
+.BusInfo_Card:hover .BusIcon {
+    background-color: #1f4352;
+}
+
+.BusInfo_Card:hover .CardHeading {
+    border-bottom: 1px solid #1f4352;
+}
+
+.BusInfo_Card:hover .CardDetails {
+    border-top: 1px solid #1f4352;
+}
+
+.CardHeading {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    padding-bottom: 15px;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+}
+
+.BusIcon {
+    height: 45px;
+    width: 45px;
+    background-color: #eb6e09;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    border: 1px solid white;
+    box-shadow: 0px 0px 1px white;
+}
+
+.BusNumber {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.CardDetails {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid gray;
+}
+
+.CardContent{
+    height: 50%;
+}
+
+.KeyName{
+    height: 25%;
+    font-size: 14px;
+}
+
+.BusPageButton {
+    height: 30px;
+    width: fit-content;
+    padding: 3px 6px;
+    background-color: #EB6E09;
+    color: white;
+    font-size: 14px;
+    border: 1px solid white;
+    box-shadow: 0px 0px 1px white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BusPageButton:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+    .BusInfo_SearchBarDiv {
+        height: 40px;
+    }
+
+    .BusInfo_FilterBox {
+        font-size: 14px;
+        width: 200px;
+        height: 500px;
+    }
+
+    .Ground {
+        font-size: 15px;
+        padding: 15px;
+    }
+
+    .BusInfo_Card {
+        width: 25%;
+        font-size: 16px;
+        height: 250px
+    }
+
+    .FilterBoxGround {
+        padding-left: 30px;
+    }
+
+    .BusIcon {
+        height: 45px;
+        width: 45px;
+        font-size: 24px;
+    }
+
+    .BusPageButton {
+        padding: 3px 5px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .BusInfo_Slick {
+        height: 500px;
+    }
+
+    .slideContent {
+        width: 250px;
+        height: 300px;
+    }
+
+    .slides button {
+        font-size: 1.6rem;
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+
+    .slideContentInner {
+        transform: translateZ(1rem);
+        border-radius: 4px;
+        padding: 4px;
+    }
+
+    .slideContentInner .slideSubtitle,
+    .slideContentInner .slideTitle {
+        font-size: 18px;
+        letter-spacing: 0.1ch;
+    }
+
+    .slideContentInner .slideDescription {
+        font-size: 14px;
+        letter-spacing: 0.1ch;
+    }
+
+    .BGColorAnimations1 {
+        height: 350px;
+        width: 350px;
+        -webkit-filter: blur(90px);
+        filter: blur(90px);
+    }
+
+    .BGColorAnimations2 {
+        height: 350px;
+        width: 350px;
+        -webkit-filter: blur(90px);
+        filter: blur(90px);
+    }
+
+    .rotated_circle1 {
+        height: 90px;
+        width: 90px;
+    }
+
+    .rotated_circle2 {
+        height: 90px;
+        width: 90px;
+    }
+
+    .BusInfo_FilterBox {
+        display: none;
+    }
+
+    .FilterIcon {
+        display: flex;
+    }
+
+    .BusInfo_Content {
+        width: 100%;
+    }
+
+    .BusInfo_BusCards {
+        height: 630px;
+    }
+
+    .BusInfo_SearchBarDiv {
+        height: 45px;
+    }
+
+    .BusInfo_SearchBar {
+        width: 75%;
+    }
+
+    .SearchBar {
+        font-size: 14px;
+    }
+
+    .SearchIcon {
+        height: 18px;
+        width: 18px;
+    }
+
+    .BusInfo_Card {
+        padding: 12px;
+        margin: 25px;
+        width: 210px;
+        height: 260px;
+    }
+
+    .CardHeading {
+        height: 12%;
+        padding-bottom: 12px;
+    }
+
+    .BusIcon {
+        height: 36px;
+        width: 36px;
+        font-size: 22px;
+    }
+    .BusPageButton {
+        padding: 2px 5px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .BusInfo_Slick {
+        height: 500px;
+    }
+
+    .slideContent {
+        width: 250px;
+        height: 300px;
+    }
+
+    .slides button {
+        font-size: 1rem;
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+
+    .slideContentInner {
+        transform: translateZ(1rem);
+        border-radius: 4px;
+        padding: 4px;
+    }
+
+    .slideContentInner .slideSubtitle,
+    .slideContentInner .slideTitle {
+        font-size: 18px;
+        letter-spacing: 0.1ch;
+    }
+
+    .slideContentInner .slideDescription {
+        font-size: 14px;
+        letter-spacing: 0.1ch;
+    }
+
+    .BGColorAnimations1 {
+        height: 300px;
+        width: 300px;
+        -webkit-filter: blur(80px);
+        filter: blur(80px);
+    }
+
+    .BGColorAnimations2 {
+        height: 300px;
+        width: 300px;
+        -webkit-filter: blur(80px);
+        filter: blur(80px);
+    }
+
+    .rotated_circle1 {
+        height: 80px;
+        width: 80px;
+    }
+
+    .rotated_circle2 {
+        height: 80px;
+        width: 80px;
+    }
+
+    .BusInfo_FilterBox {
+        display: none;
+    }
+
+    .FilterIcon {
+        display: flex;
+    }
+
+    .BusInfo_Content {
+        width: 100%;
+    }
+
+    .BusInfo_BusCards {
+        height: 630px;
+    }
+
+    .BusInfo_SearchBarDiv {
+        height: 35px;
+    }
+
+    .BusInfo_SearchBar {
+        width: 70%;
+    }
+
+    .SearchBar {
+        font-size: 12px;
+    }
+
+    .SearchIcon {
+        height: 15px;
+        width: 15px;
+    }
+
+    .BusInfo_Card {
+        padding: 12px;
+        margin: 25px;
+        width: 210px;
+        height: 240px;
+    }
+
+    .CardHeading {
+        height: 12%;
+        padding-bottom: 12px;
+    }
+
+    .BusIcon {
+        height: 36px;
+        width: 36px;
+        font-size: 22px;
+    }
+
+    .BusPageButton {
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+
+
+}
