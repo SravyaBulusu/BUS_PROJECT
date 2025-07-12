@@ -1,6 +1,6 @@
 import React from 'react';
 import BusInfo from './businfo1';
-import axios from 'axios';
+import axios from '../axios';
 import { useState, useEffect } from 'react';
 
 // const busData = [
@@ -159,7 +159,10 @@ const Bus = () => {
   const [busData, setBusData] = useState([]);
 
   const BusData = () => {
-    axios.get("http://localhost:9001/bus")
+    // axios.get("http://localhost:9001/bus")
+    axios.get("/bus")
+
+    
       .then(response => {
         setBusData(response.data);
         // console.log(response)

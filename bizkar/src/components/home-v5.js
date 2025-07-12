@@ -287,7 +287,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios'; // Import Axios
+import axios from '../axios'; // Import Axios
 import Navbar from './global-components/navbar-v5';
 import Banner from './section-components/banner-v5';
 import Video from './section-components/video';
@@ -324,7 +324,11 @@ const Home_V5 = () => {
 
         try {
             // Send POST request to the login endpoint
-            const response = await axios.post('http://localhost:9001/login', {
+            // const response = await axios.post('http://localhost:9001/login', {
+            //     rollno: rollNumber,
+            //     password: password,
+            // });
+            const response = await axios.post('/login', {
                 rollno: rollNumber,
                 password: password,
             });

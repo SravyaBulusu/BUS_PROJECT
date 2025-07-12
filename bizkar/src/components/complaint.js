@@ -492,7 +492,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../axios';
 import Navbar from './global-components/navbar-v5';
 import Footer from './global-components/footer-v2';
 import { Link } from 'react-router-dom';
@@ -522,7 +522,10 @@ const AboutStyleOne = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:9001/login', {
+            // const response = await axios.post('http://localhost:9001/login', {
+            //     rollno: rollNumber,
+            //     password: password,
+            const response = await axios.post('/login', {
                 rollno: rollNumber,
                 password: password,
             });

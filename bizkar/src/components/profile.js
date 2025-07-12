@@ -1101,7 +1101,7 @@
 
 
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import Navbar from './global-components/navbar-v5';
 
 class Profile extends Component {
@@ -1126,7 +1126,8 @@ class Profile extends Component {
         const rollNumber = localStorage.getItem('rollNumber');
         if (rollNumber) {
             try {
-                const response = await axios.get(`http://localhost:9001/getStudentDetails/${rollNumber}`);
+                // const response = await axios.get(`http://localhost:9001/getStudentDetails/${rollNumber}`);
+                const response = await axios.get(`/getStudentDetails/${rollNumber}`);
                 this.setState({ studentDetails: response.data, loading: false });
                 if (response.data.busno) {
                     this.fetchBusDetails(response.data.busno);
@@ -1143,7 +1144,8 @@ class Profile extends Component {
     // Fetch bus details based on the bus number
     fetchBusDetails = async (busNumber) => {
         try {
-            const response = await axios.get(`http://localhost:9001/getBusDetails/${busNumber}`);
+            // const response = await axios.get(`http://localhost:9001/getBusDetails/${busNumber}`);
+            const response = await axios.get(`/getBusDetails/${busNumber}`);
             this.setState({ busDetails: response.data });
         } catch (error) {
             console.error('Error fetching bus details:', error);
@@ -1168,7 +1170,8 @@ class Profile extends Component {
         }
 
         try {
-            const response = await axios.post('http://localhost:9001/changePassword', {
+            // const response = await axios.post('http://localhost:9001/changePassword', {
+            const response = await axios.post('/changePassword', {
                 rollno: rollNumber,
                 currentPassword,
                 newPassword,

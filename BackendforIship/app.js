@@ -15,7 +15,7 @@ app.use(cors({
 }));
 
 
-mongoose.connect("mongodb+srv://sravyabulusu2005:vWQJNtL4N2tzkgbb@cluster0.py4um.mongodb.net/")
+mongoose.connect("mongodb+srv://sravyabulusu2005:OQKn3ELe9WkfRfZD@cluster0.py4um.mongodb.net/test?retryWrites=true&w=majority")
 .then(result=>
 {
   console.log("Connected Successfully");

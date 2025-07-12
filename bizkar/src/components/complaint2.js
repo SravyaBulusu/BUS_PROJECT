@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import st from './style.module.css';
 import { Random } from "react-animated-text";
 import { GrMapLocation } from "react-icons/gr";
@@ -48,7 +48,8 @@ const Fun = () => {
             description: describe
         };
 
-        axios.post("http://localhost:9001/com", data)
+        // axios.post("http://localhost:9001/com", data)
+        axios.post("/com", data)
             .then(res => {
                 console.log(res);
                 alert("Complaint submitted successfully!");

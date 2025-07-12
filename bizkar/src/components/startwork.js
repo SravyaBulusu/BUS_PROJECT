@@ -121,7 +121,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../axios';
 import { useLocation } from 'react-router-dom';
 import { TbBus } from 'react-icons/tb';
 import BusDetails from './busdetails';
@@ -129,7 +129,9 @@ import Roadmap from './roadmap';
 import Track from './track';
 
 const Startwork = () => {
-    const BASE_URL = "http://localhost:9001";
+    // const BASE_URL = "http://localhost:9001";
+    const BASE_URL = "https://gpsproject-production.up.railway.app";
+
     const location = useLocation();
     const { id } = location.state || {};
 
@@ -146,7 +148,7 @@ const Startwork = () => {
 
     const getBusById = async (id) => {
         try {
-            const response = await axios.get(`${BASE_URL}/bus/${id}`);
+            const response = await axios.get(`/bus/${id}`);
             setBusrelated(response.data);
         } catch (error) {
             console.error("Error fetching bus by ID:", error);

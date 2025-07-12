@@ -178,7 +178,7 @@
 
 
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../../axios';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -200,7 +200,9 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:9001/send-mail', formData);
+            // const response = await axios.post('http://localhost:9001/send-mail', formData);
+            const response = await axios.post('/send-mail', formData);
+
             alert("Message sent successfully!");
             console.log(response.data);
             // Clear form after successful submission

@@ -38,4 +38,6 @@ const StudentDetails = new mongoose.Schema({
     type: String,
   },
 });
-module.exports = mongoose.model("StudentDetails", StudentDetails);
+// module.exports = mongoose.model("StudentDetails", StudentDetails);
+module.exports = mongoose.model("StudentDetails", StudentDetails, "StudentDetails");
+

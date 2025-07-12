@@ -23,7 +23,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../axios';
 import Navbar from './global-components/navbar-v5';
 import PageHeader from './global-components/page-header';
 import Contact from './section-components/contact';
@@ -54,7 +54,10 @@ const ContactPage = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:9001/login', {
+            // const response = await axios.post('http://localhost:9001/login', {
+            //     rollno: rollNumber,
+            //     password: password,
+            const response = await axios.post('/login', {
                 rollno: rollNumber,
                 password: password,
             });
