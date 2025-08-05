@@ -17,6 +17,11 @@ A real-time bus tracking system built with modern web technologies to provide us
 - Database: MongoDB (optional or as per implementation)
 - Deployment: Railway / Render (frontend not yet hosted)
 
+## ✨ Structure
+- bizkar: frontend using react
+- backendforiship: backend using express,node
+- AdminPortal: admin portal accessible for admins
+
 ## 🚀 How to Run Locally
 1. Clone the repo
 2. Install dependencies using `npm install`
