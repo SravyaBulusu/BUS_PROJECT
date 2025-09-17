@@ -10,9 +10,9 @@ const FirstRoute=require('./Router/FirstRoute');
 
 var app = express();
 
-app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'], // Allow both frontends
-}));
+// app.use(cors({
+//   origin: ['http://localhost:3000', 'http://localhost:3001'], // Allow both frontends
+// }));
 
 app.use(cors({
   origin: 'https://bustransport.netlify.app', // replace with your Netlify frontend URL
