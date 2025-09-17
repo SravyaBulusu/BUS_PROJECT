@@ -14,6 +14,14 @@ app.use(cors({
   origin: ['http://localhost:3000', 'http://localhost:3001'], // Allow both frontends
 }));
 
+app.use(cors({
+  origin: 'https://bustransport.netlify.app', // replace with your Netlify frontend URL
+  credentials: true // needed if you use cookies
+}));
+
+// Optional: to parse JSON bodies
+app.use(express.json());
+
 
 mongoose.connect("mongodb+srv://sravyabulusu2005:OQKn3ELe9WkfRfZD@cluster0.py4um.mongodb.net/test?retryWrites=true&w=majority")
 .then(result=>
