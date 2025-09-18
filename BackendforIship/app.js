@@ -15,7 +15,7 @@ var app = express();
 // }));
 
 app.use(cors({
-  origin: ['https://bustransport.netlify.app','http://localhost:3000'], // replace with your Netlify frontend URL
+  origin: ['https://bustransport.netlify.app','http://localhost:3000','https://adminportal-3.onrender.com'], // replace with your Netlify frontend URL
   credentials: true // needed if you use cookies
 }));
 
