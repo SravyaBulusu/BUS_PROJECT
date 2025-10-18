@@ -7,6 +7,7 @@ const cors=require('cors');
 const bodyparser=require('body-parser');
 const mongoose=require('mongoose');
 const FirstRoute=require('./Router/FirstRoute');
+const locationRoute=require('./Router/locationRoute')
 
 var app = express();
 
@@ -45,6 +46,7 @@ app.use(cors());
 app.use(bodyparser());
 
 app.use("/",FirstRoute);
+app.use("/", locationRoute);
 
 
 app.listen(9001,function(){
